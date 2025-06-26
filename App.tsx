@@ -5,24 +5,44 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ThemeProvider } from './src/theme/ThemeProvider';
+import { RootNavigator } from './src/navigation/RootNavigator';
+import { useColorScheme, View } from 'react-native';
+import { AuthProvider } from './src/store/useAuth';
+import { ThemeToggle } from './src/components/ThemeToggle';
+import { enableScreens } from 'react-native-screens';
+import { useEffect } from 'react';
+import { MMKV } from 'react-native-mmkv';
+import { seedEmployees } from './src/api/employees';
+
+const queryClient = new QueryClient();
+const storage = new MMKV();
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
+  useEffect(() => {
+    const local = storage.getString('employees_data');
+    if (!local) {
+      seedEmployees();
+    }
+  }, []);
+  enableScreens();
+  const scheme = useColorScheme();
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider scheme={scheme || 'light'}>
+        <AuthProvider>
+          <View style={{ flex: 1 }}>
+            <NavigationContainer>
+              <RootNavigator />
+            </NavigationContainer>
+            <ThemeToggle />
+          </View>
+        </AuthProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;

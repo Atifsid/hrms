@@ -1,0 +1,47 @@
+[
+  {
+    "id": 101,
+    "name": "John Doe",
+    "email": "john.doe@email.com",
+    "role": "Developer",
+    "arrivalTime": "09:00",
+    "username": "john",
+    "password": "john123"
+  },
+  {
+    "id": 102,
+    "name": "Jane Smith",
+    "email": "jane.smith@email.com",
+    "role": "Designer",
+    "arrivalTime": "09:10",
+    "username": "jane",
+    "password": "jane123"
+  },
+  {
+    "id": 103,
+    "name": "Liam Brown",
+    "email": "liam.brown@email.com",
+    "role": "QA",
+    "arrivalTime": "09:05",
+    "username": "liam",
+    "password": "liam123"
+  },
+  {
+    "id": 104,
+    "name": "Emma Wilson",
+    "email": "emma.wilson@email.com",
+    "role": "Manager",
+    "arrivalTime": "08:55",
+    "username": "emma",
+    "password": "emma123"
+  },
+  {
+    "id": 105,
+    "name": "Olivia Lee",
+    "email": "olivia.lee@email.com",
+    "role": "HR",
+    "arrivalTime": "09:00",
+    "username": "olivia",
+    "password": "olivia123"
+  }
+]
