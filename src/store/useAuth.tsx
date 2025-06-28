@@ -28,7 +28,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     storage.delete('isAuthenticated');
     storage.delete('employee');
     storage.delete('role');
-    storage.delete('office_coords');
   }
   useEffect(() => {
     console.log('isAuthenticated', isAuthenticated);

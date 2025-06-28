@@ -6,9 +6,18 @@ import {
   TouchableOpacity,
   Dimensions,
   ScrollView,
+  Platform,
 } from 'react-native';
 import { useTheme } from '../../theme';
 import { MMKV } from 'react-native-mmkv';
+import Geolocation from 'react-native-geolocation-service';
+import {
+  check,
+  request,
+  PERMISSIONS,
+  RESULTS,
+  openSettings,
+} from 'react-native-permissions';
 
 const storage = new MMKV();
 const OFFICE_KEY = 'office_coords';
@@ -19,6 +28,8 @@ export function SetOfficeLocationScreen() {
   const [lat, setLat] = useState('');
   const [lon, setLon] = useState('');
   const [message, setMessage] = useState('');
+  const [locLoading, setLocLoading] = useState(false);
+  const [locError, setLocError] = useState('');
 
   useEffect(() => {
     const coords = storage.getString(OFFICE_KEY);
@@ -34,11 +45,46 @@ export function SetOfficeLocationScreen() {
       setMessage('Please enter valid coordinates');
       return;
     }
-    storage.set(
-      OFFICE_KEY,
-      JSON.stringify({ latitude: Number(lat), longitude: Number(lon) }),
-    );
+    storage.set(OFFICE_KEY, JSON.stringify({ latitude: lat, longitude: lon }));
     setMessage('Office location saved!');
+  }
+
+  async function handleUseCurrentLocation() {
+    setLocError('');
+    setLocLoading(true);
+    const perm =
+      Platform.OS === 'ios'
+        ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+        : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION;
+    let result = await check(perm);
+    if (result === RESULTS.DENIED) {
+      result = await request(perm);
+    }
+    if (result === RESULTS.GRANTED) {
+      if (Platform.OS === 'ios') {
+        Geolocation.requestAuthorization('whenInUse');
+      }
+      Geolocation.getCurrentPosition(
+        pos => {
+          setLat(pos.coords.latitude.toString());
+          setLon(pos.coords.longitude.toString());
+          setLocLoading(false);
+        },
+        err => {
+          setLocError(
+            'Unable to get location. Please enable location services.',
+          );
+          setLocLoading(false);
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 1000 },
+      );
+    } else {
+      if (result === RESULTS.BLOCKED) openSettings();
+      setLocError(
+        'Location permission denied. Please enable location permissions in settings.',
+      );
+      setLocLoading(false);
+    }
   }
 
   return (
@@ -108,6 +154,30 @@ export function SetOfficeLocationScreen() {
             fontSize: 16,
           }}
         />
+        <TouchableOpacity
+          onPress={handleUseCurrentLocation}
+          style={{
+            backgroundColor: '#6c63ff',
+            paddingVertical: 12,
+            width: '100%',
+            borderRadius: 10,
+            marginTop: 4,
+            marginBottom: 8,
+            alignItems: 'center',
+            opacity: locLoading ? 0.7 : 1,
+          }}
+          activeOpacity={0.85}
+          disabled={locLoading}
+        >
+          <Text style={{ color: 'white', fontSize: 16, fontWeight: '600' }}>
+            {locLoading
+              ? 'Getting current location...'
+              : 'Use Current Location'}
+          </Text>
+        </TouchableOpacity>
+        {!!locError && (
+          <Text style={{ color: 'red', marginBottom: 8 }}>{locError}</Text>
+        )}
         <TouchableOpacity
           onPress={handleSave}
           style={{
