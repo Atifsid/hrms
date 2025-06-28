@@ -13,6 +13,7 @@ import { Employee, updateEmployee } from '../../api/employees';
 import { Header } from '../../components/Header';
 import { useAuth } from '../../store/useAuth';
 import { ThemeToggle } from '../../components/ThemeToggle';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const { width } = Dimensions.get('window');
 
@@ -37,6 +38,7 @@ export function EmployeeEditScreen() {
   const [role, setRole] = useState(employee?.role || '');
   const [arrivalTime, setArrivalTime] = useState(employee?.arrivalTime || '');
   const [error, setError] = useState('');
+  const [showTimePicker, setShowTimePicker] = useState(false);
 
   function handleSave() {
     setError('');
@@ -151,11 +153,8 @@ export function EmployeeEditScreen() {
               fontSize: 16,
             }}
           />
-          <TextInput
-            value={arrivalTime}
-            onChangeText={setArrivalTime}
-            placeholder="Arrival Time (HH:mm)"
-            placeholderTextColor={theme.placeholder}
+          <TouchableOpacity
+            onPress={() => setShowTimePicker(true)}
             style={{
               width: '100%',
               height: 48,
@@ -163,12 +162,55 @@ export function EmployeeEditScreen() {
               borderColor: theme.border,
               borderRadius: 10,
               marginBottom: 8,
-              color: theme.text,
+              justifyContent: 'center',
               paddingHorizontal: 16,
               backgroundColor: theme.inputBg,
-              fontSize: 16,
             }}
-          />
+            activeOpacity={0.85}
+          >
+            <Text
+              style={{
+                color: arrivalTime ? theme.text : theme.placeholder,
+                fontSize: 16,
+              }}
+            >
+              {arrivalTime
+                ? `Arrival Time: ${arrivalTime}`
+                : 'Select Arrival Time'}
+            </Text>
+          </TouchableOpacity>
+          {showTimePicker && (
+            <DateTimePicker
+              value={
+                arrivalTime
+                  ? new Date(
+                      0,
+                      0,
+                      0,
+                      parseInt(arrivalTime.split(':')[0]),
+                      parseInt(arrivalTime.split(':')[1]),
+                    )
+                  : new Date()
+              }
+              mode="time"
+              is24Hour={true}
+              display="default"
+              onChange={(event, selectedDate) => {
+                setShowTimePicker(false);
+                if (event.type === 'set' && selectedDate) {
+                  const hours = selectedDate
+                    .getHours()
+                    .toString()
+                    .padStart(2, '0');
+                  const minutes = selectedDate
+                    .getMinutes()
+                    .toString()
+                    .padStart(2, '0');
+                  setArrivalTime(`${hours}:${minutes}`);
+                }
+              }}
+            />
+          )}
           {!!error && (
             <Text
               style={{
