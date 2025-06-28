@@ -8,6 +8,7 @@ type HeaderProps = {
   onLogout: () => void;
   showAvatar?: boolean;
   children?: ReactNode;
+  showLogoutBtn?: boolean;
 };
 
 export function Header({
@@ -15,6 +16,7 @@ export function Header({
   onLogout,
   showAvatar = true,
   children,
+  showLogoutBtn = true,
 }: HeaderProps) {
   const { theme } = useTheme();
   return (
@@ -54,9 +56,15 @@ export function Header({
             style={{ marginRight: 16 }}
           />
         )}
-        <Pressable onPress={onLogout} hitSlop={12}>
-          <MaterialCommunityIcons name="logout" size={28} color={theme.error} />
-        </Pressable>
+        {showLogoutBtn && (
+          <Pressable onPress={onLogout} hitSlop={12}>
+            <MaterialCommunityIcons
+              name="logout"
+              size={28}
+              color={theme.error}
+            />
+          </Pressable>
+        )}
         {children}
       </View>
     </View>
