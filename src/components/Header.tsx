@@ -14,7 +14,7 @@ type HeaderProps = {
 export function Header({
   title,
   onLogout,
-  showAvatar = true,
+  showAvatar = false,
   children,
   showLogoutBtn = true,
 }: HeaderProps) {
@@ -48,24 +48,24 @@ export function Header({
         {title}
       </Text>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        {showAvatar && (
+        {children}
+        {/* {showAvatar && (
           <MaterialCommunityIcons
             name="account-circle"
-            size={32}
+            size={24}
             color={theme.secondary}
-            style={{ marginRight: 16 }}
+            style={{ marginLeft: 16 }}
           />
-        )}
+        )} */}
         {showLogoutBtn && (
-          <Pressable onPress={onLogout} hitSlop={12}>
+          <Pressable onPress={onLogout} hitSlop={12} style={{ marginLeft: 22 }}>
             <MaterialCommunityIcons
               name="logout"
-              size={28}
+              size={24}
               color={theme.error}
             />
           </Pressable>
         )}
-        {children}
       </View>
     </View>
   );
