@@ -5,8 +5,8 @@
     "email": "john.doe@email.com",
     "role": "Developer",
     "arrivalTime": "09:00",
-    "username": "john",
-    "password": "john123"
+    "username": "john.doe",
+    "password": "john.doe123"
   },
   {
     "id": 102,
@@ -14,8 +14,8 @@
     "email": "jane.smith@email.com",
     "role": "Designer",
     "arrivalTime": "09:10",
-    "username": "jane",
-    "password": "jane123"
+    "username": "jane.smith",
+    "password": "jane.smith123"
   },
   {
     "id": 103,
@@ -23,8 +23,8 @@
     "email": "liam.brown@email.com",
     "role": "QA",
     "arrivalTime": "09:05",
-    "username": "liam",
-    "password": "liam123"
+    "username": "liam.brown",
+    "password": "liam.brown123"
   },
   {
     "id": 104,
@@ -32,8 +32,8 @@
     "email": "emma.wilson@email.com",
     "role": "Manager",
     "arrivalTime": "08:55",
-    "username": "emma",
-    "password": "emma123"
+    "username": "emma.wilson",
+    "password": "emma.wilson123"
   },
   {
     "id": 105,
@@ -41,8 +41,8 @@
     "email": "olivia.lee@email.com",
     "role": "HR",
     "arrivalTime": "09:00",
-    "username": "olivia",
-    "password": "olivia123"
+    "username": "olivia.lee",
+    "password": "olivia.lee123"
   },
   {
     "id": 106,
@@ -50,8 +50,8 @@
     "email": "noah.kim@email.com",
     "role": "Developer",
     "arrivalTime": "09:02",
-    "username": "noah",
-    "password": "noah123"
+    "username": "noah.kim",
+    "password": "noah.kim123"
   },
   {
     "id": 107,
@@ -59,8 +59,8 @@
     "email": "ava.patel@email.com",
     "role": "Designer",
     "arrivalTime": "09:12",
-    "username": "ava",
-    "password": "ava123"
+    "username": "ava.patel",
+    "password": "ava.patel123"
   },
   {
     "id": 108,
@@ -68,8 +68,8 @@
     "email": "sophia.chen@email.com",
     "role": "QA",
     "arrivalTime": "09:07",
-    "username": "sophia",
-    "password": "sophia123"
+    "username": "sophia.chen",
+    "password": "sophia.chen123"
   },
   {
     "id": 109,
@@ -77,8 +77,8 @@
     "email": "mason.clark@email.com",
     "role": "Manager",
     "arrivalTime": "08:50",
-    "username": "mason",
-    "password": "mason123"
+    "username": "mason.clark",
+    "password": "mason.clark123"
   },
   {
     "id": 110,
@@ -86,8 +86,8 @@
     "email": "lucas.hall@email.com",
     "role": "HR",
     "arrivalTime": "09:03",
-    "username": "lucas",
-    "password": "lucas123"
+    "username": "lucas.hall",
+    "password": "lucas.hall123"
   },
   {
     "id": 111,
@@ -95,8 +95,8 @@
     "email": "mia.scott@email.com",
     "role": "Developer",
     "arrivalTime": "09:01",
-    "username": "mia",
-    "password": "mia123"
+    "username": "mia.scott",
+    "password": "mia.scott123"
   },
   {
     "id": 112,
@@ -104,8 +104,8 @@
     "email": "benjamin.young@email.com",
     "role": "Designer",
     "arrivalTime": "09:15",
-    "username": "benjamin",
-    "password": "benjamin123"
+    "username": "benjamin.young",
+    "password": "benjamin.young123"
   },
   {
     "id": 113,
@@ -113,8 +113,8 @@
     "email": "charlotte.king@email.com",
     "role": "QA",
     "arrivalTime": "09:09",
-    "username": "charlotte",
-    "password": "charlotte123"
+    "username": "charlotte.king",
+    "password": "charlotte.king123"
   },
   {
     "id": 114,
@@ -122,8 +122,8 @@
     "email": "elijah.wright@email.com",
     "role": "Manager",
     "arrivalTime": "08:53",
-    "username": "elijah",
-    "password": "elijah123"
+    "username": "elijah.wright",
+    "password": "elijah.wright123"
   },
   {
     "id": 115,
@@ -131,8 +131,8 @@
     "email": "amelia.green@email.com",
     "role": "HR",
     "arrivalTime": "09:04",
-    "username": "amelia",
-    "password": "amelia123"
+    "username": "amelia.green",
+    "password": "amelia.green123"
   },
   {
     "id": 116,
@@ -140,8 +140,8 @@
     "email": "logan.adams@email.com",
     "role": "Developer",
     "arrivalTime": "09:06",
-    "username": "logan",
-    "password": "logan123"
+    "username": "logan.adams",
+    "password": "logan.adams123"
   },
   {
     "id": 117,
@@ -149,8 +149,8 @@
     "email": "harper.nelson@email.com",
     "role": "Designer",
     "arrivalTime": "09:13",
-    "username": "harper",
-    "password": "harper123"
+    "username": "harper.nelson",
+    "password": "harper.nelson123"
   },
   {
     "id": 118,
@@ -158,8 +158,8 @@
     "email": "evelyn.baker@email.com",
     "role": "QA",
     "arrivalTime": "09:08",
-    "username": "evelyn",
-    "password": "evelyn123"
+    "username": "evelyn.baker",
+    "password": "evelyn.baker123"
   },
   {
     "id": 119,
@@ -167,8 +167,8 @@
     "email": "james.perez@email.com",
     "role": "Manager",
     "arrivalTime": "08:58",
-    "username": "james",
-    "password": "james123"
+    "username": "james.perez",
+    "password": "james.perez123"
   },
   {
     "id": 120,
@@ -176,7 +176,7 @@
     "email": "henry.rivera@email.com",
     "role": "HR",
     "arrivalTime": "09:11",
-    "username": "henry",
-    "password": "henry123"
+    "username": "henry.rivera",
+    "password": "henry.rivera123"
   }
 ]
