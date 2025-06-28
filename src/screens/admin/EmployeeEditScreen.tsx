@@ -54,12 +54,16 @@ export function EmployeeEditScreen() {
       setError('Arrival time must be HH:mm');
       return;
     }
+    const username = email.split('@')[0];
+    const password = username + '123';
     updateEmployee({
       id: employee?.id || Date.now(),
       name,
       email,
       role,
       arrivalTime,
+      username,
+      password,
     });
     navigation.goBack();
   }

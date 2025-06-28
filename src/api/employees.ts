@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { MMKV } from 'react-native-mmkv';
 import employeesData from './employees_data.json';
 
@@ -41,7 +40,7 @@ export async function updateEmployee(employee: Employee): Promise<Employee> {
   if (idx > -1) {
     all[idx] = employee;
   } else {
-    all.push(employee);
+    all.unshift(employee);
   }
   storage.set(EMPLOYEE_KEY, JSON.stringify(all));
   return employee;
