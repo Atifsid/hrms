@@ -37,7 +37,6 @@ function App() {
       seedEmployees();
     }
 
-    // Set office location to current device location if not already set
     const office = storage.getString(OFFICE_KEY);
     if (!office) {
       (async () => {
@@ -63,9 +62,7 @@ function App() {
                 }),
               );
             },
-            err => {
-              // Optionally handle error
-            },
+            err => {},
             { enableHighAccuracy: true, timeout: 10000, maximumAge: 1000 },
           );
         } else {
