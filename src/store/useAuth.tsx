@@ -25,7 +25,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   function logout() {
     setIsAuthenticated(false);
-    storage.clearAll();
+    storage.delete('isAuthenticated');
+    storage.delete('employee');
+    storage.delete('role');
+    storage.delete('office_coords');
   }
   useEffect(() => {
     console.log('isAuthenticated', isAuthenticated);

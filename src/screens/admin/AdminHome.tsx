@@ -16,15 +16,6 @@ export function AdminHome() {
     useNavigation<NativeStackNavigationProp<AdminStackParamList>>();
   const { logout } = useAuth();
 
-  useFocusEffect(
-    useCallback(() => {
-      const coords = storage.getString(OFFICE_KEY);
-      if (!coords) {
-        navigation.navigate('SetOfficeLocation');
-      }
-    }, [navigation]),
-  );
-
   return (
     <View
       style={{
