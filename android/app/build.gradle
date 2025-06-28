@@ -93,6 +93,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            storeFile file('hrms.keystore')
+            storePassword 'hrms1234'
+            keyAlias 'hrms_alias'
+            keyPassword 'hrms1234'
+            }
     }
     buildTypes {
         debug {
