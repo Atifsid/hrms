@@ -12,7 +12,8 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { getEmployees } from '../../api/employees';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AdminStackParamList } from '../../navigation/types';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const PAGE_SIZE = 6;
 
@@ -73,11 +74,17 @@ export function EmployeeListScreen() {
                 }
                 style={{
                   backgroundColor: theme.primary,
-                  padding: 10,
+                  paddingHorizontal: 10,
+                  paddingVertical: 7,
+                  paddingRight: 14,
                   borderRadius: 8,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: 8,
                 }}
               >
-                <Text style={{ color: theme.card, fontSize: 16 }}>Add</Text>
+                <Ionicons name="person-add" size={14} color={theme.card} />
+                <Text style={{ color: theme.card, fontSize: 14 }}>Add</Text>
               </TouchableOpacity>
             </View>
           }
@@ -117,11 +124,17 @@ export function EmployeeListScreen() {
                 }
                 style={{
                   backgroundColor: theme.secondary,
-                  padding: 10,
+                  paddingHorizontal: 10,
+                  paddingVertical: 7,
+                  paddingRight: 14,
                   borderRadius: 8,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: 8,
                 }}
               >
-                <Text style={{ color: theme.card }}>Edit</Text>
+                <FontAwesome5 name="user-edit" size={14} color={theme.card} />
+                <Text style={{ color: theme.card, fontSize: 14 }}>Edit</Text>
               </TouchableOpacity>
             </View>
           )}
