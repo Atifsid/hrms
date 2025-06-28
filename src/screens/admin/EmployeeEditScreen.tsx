@@ -36,7 +36,15 @@ export function EmployeeEditScreen() {
   const [name, setName] = useState(employee?.name || '');
   const [email, setEmail] = useState(employee?.email || '');
   const [role, setRole] = useState(employee?.role || '');
-  const [arrivalTime, setArrivalTime] = useState(employee?.arrivalTime || '');
+  const [hours, setHours] = useState(() => {
+    if (employee?.arrivalTime) return employee.arrivalTime.split(':')[0];
+    return '';
+  });
+  const [minutes, setMinutes] = useState(() => {
+    if (employee?.arrivalTime) return employee.arrivalTime.split(':')[1];
+    return '';
+  });
+  const arrivalTime = hours && minutes ? `${hours}:${minutes}` : '';
   const [error, setError] = useState('');
   const [showTimePicker, setShowTimePicker] = useState(false);
 
@@ -157,67 +165,74 @@ export function EmployeeEditScreen() {
               fontSize: 16,
             }}
           />
-          <TouchableOpacity
-            onPress={() => setShowTimePicker(true)}
+          <View
             style={{
+              flexDirection: 'row',
               width: '100%',
-              height: 48,
-              borderWidth: 1,
-              borderColor: theme.border,
-              borderRadius: 10,
               marginBottom: 8,
+              alignItems: 'center',
               justifyContent: 'center',
-              paddingHorizontal: 16,
-              backgroundColor: theme.inputBg,
             }}
-            activeOpacity={0.85}
           >
-            <Text
+            <TextInput
+              value={hours}
+              onChangeText={text => {
+                const val = text.replace(/[^0-9]/g, '').slice(0, 2);
+                setHours(val);
+              }}
+              placeholder="HH"
+              placeholderTextColor={theme.placeholder}
               style={{
-                color: arrivalTime ? theme.text : theme.placeholder,
+                flex: 4,
+                height: 48,
+                borderWidth: 1,
+                borderColor: theme.border,
+                borderRadius: 10,
+                color: theme.text,
+                paddingHorizontal: 16,
+                backgroundColor: theme.inputBg,
                 fontSize: 16,
+                marginRight: 6,
+                minWidth: 0,
+              }}
+              keyboardType="numeric"
+              maxLength={2}
+              returnKeyType="next"
+            />
+            <View
+              style={{
+                flex: 2,
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              {arrivalTime
-                ? `Arrival Time: ${arrivalTime}`
-                : 'Select Arrival Time'}
-            </Text>
-          </TouchableOpacity>
-          {showTimePicker &&
-            (() => {
-              const now = new Date();
-              const pickerDate = arrivalTime
-                ? new Date(
-                    now.getFullYear(),
-                    now.getMonth(),
-                    now.getDate(),
-                    parseInt(arrivalTime.split(':')[0]),
-                    parseInt(arrivalTime.split(':')[1]),
-                  )
-                : now;
-              return (
-                <DateTimePicker
-                  value={pickerDate}
-                  mode="time"
-                  is24Hour={true}
-                  display="default"
-                  onChange={(event, selectedDate) => {
-                    setShowTimePicker(false);
-                    if (event.type === 'set' && selectedDate) {
-                      const hours = selectedDate
-                        .getHours()
-                        .toString()
-                        .padStart(2, '0');
-                      const minutes = selectedDate
-                        .getMinutes()
-                        .toString()
-                        .padStart(2, '0');
-                      setArrivalTime(`${hours}:${minutes}`);
-                    }
-                  }}
-                />
-              );
-            })()}
+              <Text style={{ fontSize: 20, color: theme.text }}>: </Text>
+            </View>
+            <TextInput
+              value={minutes}
+              onChangeText={text => {
+                const val = text.replace(/[^0-9]/g, '').slice(0, 2);
+                setMinutes(val);
+              }}
+              placeholder="MM"
+              placeholderTextColor={theme.placeholder}
+              style={{
+                flex: 4,
+                height: 48,
+                borderWidth: 1,
+                borderColor: theme.border,
+                borderRadius: 10,
+                color: theme.text,
+                paddingHorizontal: 16,
+                backgroundColor: theme.inputBg,
+                fontSize: 16,
+                marginLeft: 6,
+                minWidth: 0,
+              }}
+              keyboardType="numeric"
+              maxLength={2}
+            />
+          </View>
           {!!error && (
             <Text
               style={{
