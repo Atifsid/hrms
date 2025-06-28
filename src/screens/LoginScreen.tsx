@@ -5,12 +5,14 @@ import {
   TouchableOpacity,
   Text,
   Dimensions,
+  Pressable,
 } from 'react-native';
 import { useAuth } from '../store/useAuth';
 import { MMKV } from 'react-native-mmkv';
 import { useTheme } from '../theme';
 import { getEmployeeByUsername } from '../api/employees';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { ThemeToggle } from '../components/ThemeToggle';
 
 const storage = new MMKV();
 const { width } = Dimensions.get('window');
@@ -22,7 +24,7 @@ export function LoginScreen() {
   const [role, setRole] = useState<'admin' | 'employee'>('employee');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { theme } = useTheme();
+  const { scheme, theme, setTheme } = useTheme();
 
   async function handleLogin() {
     setError('');
@@ -56,6 +58,26 @@ export function LoginScreen() {
         alignItems: 'center',
       }}
     >
+      <Pressable
+        onPress={() => setTheme(scheme === 'dark' ? 'light' : 'dark')}
+        style={{
+          position: 'absolute',
+          top: 16,
+          right: 20,
+          borderWidth: 1,
+          borderColor: theme.border,
+          borderRadius: 16,
+          paddingRight: 14,
+          paddingVertical: 6,
+        }}
+      >
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+          <ThemeToggle />
+          <Text style={{ color: theme.primary, fontWeight: 'bold' }}>
+            {scheme === 'dark' ? 'Light' : 'Dark'} Mode
+          </Text>
+        </View>
+      </Pressable>
       <View
         style={{
           width: width > 400 ? 360 : width - 32,

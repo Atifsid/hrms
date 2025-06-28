@@ -49,6 +49,7 @@ export function SetOfficeLocationScreen() {
         alignItems: 'center',
         backgroundColor: theme.background,
       }}
+      keyboardShouldPersistTaps="always"
     >
       <View
         style={{

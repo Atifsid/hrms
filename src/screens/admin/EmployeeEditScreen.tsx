@@ -87,6 +87,7 @@ export function EmployeeEditScreen() {
           alignItems: 'center',
           backgroundColor: theme.background,
         }}
+        keyboardShouldPersistTaps="always"
       >
         <View
           style={{
