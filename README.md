@@ -1,6 +1,29 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# About project
 
-# Getting Started
+This is a submission for the app development assignment provided by Akhil Systems Pvt. Ltd.
+The application was developed using React Native, and it meets the requirements mentioned in the assignment.
+
+# Prerequisites
+
+- App's local storage is seeded with the employees from [here](https://github.com/Atifsid/hrms/blob/master/src/api/employees_data.json)
+- Any user can be admin or employee on the basis of role selection from login screen.
+- For user login, username is everything before '@' in user's email and password is username + `123`
+- The same assumptions are used while saving employees.
+
+For instance:-
+
+```
+Email -> atif.siddiqui35@gmail.com
+Username -> atif.siddiqui35
+Password -> atif.siddiqui35123
+```
+
+## Account credentials for usage/testing:-
+
+username : `john.doe` \
+password: `john.doe123`
+
+# Getting Started with building
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
