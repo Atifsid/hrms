@@ -224,7 +224,7 @@ export function AttendanceScreen() {
               color={theme.primary}
             />
             <Text style={{ color: theme.text, fontSize: 18, marginTop: 16 }}>
-              Biometric Verification...
+              Biometric Verification Simulation...
             </Text>
           </View>
         )}
