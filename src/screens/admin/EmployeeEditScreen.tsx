@@ -179,38 +179,41 @@ export function EmployeeEditScreen() {
                 : 'Select Arrival Time'}
             </Text>
           </TouchableOpacity>
-          {showTimePicker && (
-            <DateTimePicker
-              value={
-                arrivalTime
-                  ? new Date(
-                      0,
-                      0,
-                      0,
-                      parseInt(arrivalTime.split(':')[0]),
-                      parseInt(arrivalTime.split(':')[1]),
-                    )
-                  : new Date()
-              }
-              mode="time"
-              is24Hour={true}
-              display="default"
-              onChange={(event, selectedDate) => {
-                setShowTimePicker(false);
-                if (event.type === 'set' && selectedDate) {
-                  const hours = selectedDate
-                    .getHours()
-                    .toString()
-                    .padStart(2, '0');
-                  const minutes = selectedDate
-                    .getMinutes()
-                    .toString()
-                    .padStart(2, '0');
-                  setArrivalTime(`${hours}:${minutes}`);
-                }
-              }}
-            />
-          )}
+          {showTimePicker &&
+            (() => {
+              const now = new Date();
+              const pickerDate = arrivalTime
+                ? new Date(
+                    now.getFullYear(),
+                    now.getMonth(),
+                    now.getDate(),
+                    parseInt(arrivalTime.split(':')[0]),
+                    parseInt(arrivalTime.split(':')[1]),
+                  )
+                : now;
+              return (
+                <DateTimePicker
+                  value={pickerDate}
+                  mode="time"
+                  is24Hour={true}
+                  display="default"
+                  onChange={(event, selectedDate) => {
+                    setShowTimePicker(false);
+                    if (event.type === 'set' && selectedDate) {
+                      const hours = selectedDate
+                        .getHours()
+                        .toString()
+                        .padStart(2, '0');
+                      const minutes = selectedDate
+                        .getMinutes()
+                        .toString()
+                        .padStart(2, '0');
+                      setArrivalTime(`${hours}:${minutes}`);
+                    }
+                  }}
+                />
+              );
+            })()}
           {!!error && (
             <Text
               style={{
