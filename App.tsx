@@ -37,7 +37,6 @@ function App() {
             <NavigationContainer>
               <RootNavigator />
             </NavigationContainer>
-            <ThemeToggle />
           </View>
         </AuthProvider>
       </ThemeProvider>

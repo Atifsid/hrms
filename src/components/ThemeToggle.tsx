@@ -7,13 +7,12 @@ export function ThemeToggle() {
     <TouchableOpacity
       onPress={() => setTheme(scheme === 'dark' ? 'light' : 'dark')}
       style={{
-        position: 'absolute',
-        top: 24,
-        right: 24,
-        backgroundColor: theme.card,
-        padding: 10,
+        paddingHorizontal: 10,
+        paddingVertical: 6,
+        borderColor: theme.border,
+        borderWidth: 1,
         borderRadius: 20,
-        elevation: 2,
+        marginLeft: 10,
       }}
     >
       <Text style={{ color: theme.primary, fontWeight: 'bold' }}>

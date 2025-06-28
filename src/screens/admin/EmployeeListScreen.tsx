@@ -46,33 +46,41 @@ export function EmployeeListScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.background }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          gap: 10,
-          alignItems: 'center',
-          padding: 20,
-        }}
-      >
-        <Text style={{ color: theme.text, fontSize: 24 }}>Employees</Text>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('EmployeeEdit', { mode: 'add' })}
-          style={{
-            backgroundColor: theme.primary,
-            padding: 10,
-            borderRadius: 8,
-          }}
-        >
-          <Text style={{ color: theme.card, fontSize: 16 }}>Add</Text>
-          {/* <AntDesign name="user-add" size={16} color={theme.card} /> */}
-        </TouchableOpacity>
-      </View>
       {isLoading ? (
-        <ActivityIndicator color={theme.primary} style={{ marginTop: 40 }} />
+        <ActivityIndicator color={theme.primary} style={{ marginTop: 0 }} />
       ) : (
         <FlatList
           data={employees}
           keyExtractor={item => item.id.toString()}
+          contentContainerStyle={{ paddingTop: 0, marginTop: 0, flexGrow: 1 }}
+          ListHeaderComponent={
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                paddingHorizontal: 16,
+                paddingTop: 0,
+                paddingBottom: 0,
+                marginTop: 0,
+                marginBottom: 0,
+              }}
+            >
+              <Text style={{ color: theme.text, fontSize: 24 }}>Employees</Text>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('EmployeeEdit', { mode: 'add' })
+                }
+                style={{
+                  backgroundColor: theme.primary,
+                  padding: 10,
+                  borderRadius: 8,
+                }}
+              >
+                <Text style={{ color: theme.card, fontSize: 16 }}>Add</Text>
+              </TouchableOpacity>
+            </View>
+          }
           renderItem={({ item }) => (
             <View
               style={{

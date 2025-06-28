@@ -146,7 +146,7 @@ export function AttendanceScreen() {
     <ScrollView
       contentContainerStyle={{
         flexGrow: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: theme.background,
       }}
