@@ -1,7 +1,39 @@
-# About project
+## 📱 About the Project
 
-This is a submission for the app development assignment provided by Akhil Systems Pvt. Ltd.
-The application was developed using React Native, and it meets the requirements mentioned in the assignment.
+A cross-platform mobile application built using **React Native** to manage employee information and attendance, supporting role-based access for **Admins** and **Employees**.
+
+### 🎯 Key Features
+
+- **User Roles:**
+  - **Admin:** View and manage all employees and their details.
+  - **Employee:** Access personal employment information only.
+
+- **Authentication:**
+  - User login with session persistence using **MMKV**.
+  - Simple credential logic based on email structure.
+
+- **Employee Management:**
+  - Admins can **add** and **edit** employee records.
+  - Smooth infinite scrolling with **frontend pagination**.
+
+- **Attendance (Stubbed UI):**
+  - Placeholder UI for biometric verification and GPS-based check-in logic.
+
+- **Data Handling:**
+  - Local data fetching using **TanStack Query** and **Axios**.
+  - Mock API integration with static JSON files.
+
+- **UI/UX:**
+  - Splash screen and custom app icon.
+  - Light/Dark mode support.
+  - Fully responsive across devices and orientations.
+
+### 🧪 Test Credentials
+
+- **Username:** `john.doe`  
+- **Password:** `john.doe123`
+
+> 🔐 *Username = everything before `@` in email, Password = `username123`*
 
 # Prerequisites
 
@@ -18,10 +50,41 @@ Username -> atif.siddiqui35
 Password -> atif.siddiqui35123
 ```
 
-## Account credentials for usage/testing:-
+# Screenshots
+# Screenshots
 
-username : `john.doe` \
-password: `john.doe123`
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112411.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112415.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112441.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112446.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112453.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112506.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112510.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112512.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112519.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112525.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112530.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112535.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112551.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112554.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112558.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112601.png" width="250"/></td>
+    <td><img src="https://raw.githubusercontent.com/Atifsid/hrms/refs/heads/master/snapshots/Screenshot_20250716-112603.png" width="250"/></td>
+    <td></td>
+  </tr>
+</table>
 
 # Getting Started with building
 
